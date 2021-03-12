@@ -95,7 +95,7 @@
   use to delete the list.  
   `destroySinglyLinkedList(list);`  
   ***  
-### Description of Iterator fuctions :  
+### Description of Iterator functions :  
 
 * To `create iterator` of Singly Linked List
   ```c
@@ -132,7 +132,7 @@
 
 ## Doubly Linked List
 ***
-### Description of Main fuctions :
+### Description of Main functions :
 
 * To `create` DoublyLinkedList
    ```c
@@ -220,7 +220,7 @@
   use to delete the list.  
   `destroyDoublyLinkedList(list);`  
   ***
-### Description of Iterator fuctions :
+### Description of Iterator functions :
 
 * To `create iterator` of Doubly Linked List
   ```c
@@ -288,4 +288,3 @@
 
 
 ## Queue
-
