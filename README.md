@@ -258,7 +258,7 @@
   ```
   `DoublyLinkedListReverseIterator it;`
   `bool success;`  
-  `it=getdoublyLinkedListIterator(list,&success);`  
+  `it=getdoublyLinkedListReverseIterator(list,&success);`  
   if(`success=true`) reverse iterator (it) is created.  
   if(`success==false`) reverse iterator (it) is not created.  
   
