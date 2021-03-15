@@ -19,6 +19,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
 * [Generic Queue](#generic-queue)
    * [Use of Queue](#use-of-queue-)
 
+
 ## Generic Singly Linked List  
 ***
 ### Description of Main functions :
