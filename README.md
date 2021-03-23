@@ -18,7 +18,9 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
    * [Use of Stack](#use-of-stack-)
 * [Generic Queue](#generic-queue)
    * [Use of Queue](#use-of-queue-)
-
+* [Generic AVL Tree](#generic-avl-tree)  
+   * [AVL Tree Iterator]()
+   * [Use of AVL Tree]()
 
 ## Generic Singly Linked List  
 ***
@@ -55,7 +57,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
    if(`success==true`) element is inserted.  
    if(`success==false`) element is not   inserted.  
    
-* To `remove` element in Singly Linked List
+* To `remove` element from Singly Linked List
   ```c
   void * removeFromSinglyLinkedList(SinglyLinkedList *singlyLinkedList,int index,bool *success);
   ```
@@ -238,7 +240,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
    if(`success==true`) element is inserted.  
    if(`success==false`) element is not inserted.  
    
-* To `remove` element in Doubly Linked List  
+* To `remove` element from Doubly Linked List  
   ```c
   void * removeFromDoublyLinkedList(DoublyLinkedList *doublyLinkedList,int index,bool *success);  
   ```
@@ -672,3 +674,237 @@ ___
   return 0;
   }
   ```  
+  ## Generic AVL Tree
+___
+### Description of Main functions :
+* To `create` AVL Tree  
+  ```c
+  AVLTree * createAVLTree(bool *success,int (*predicate)(void *,void *));
+  ```
+  here the predicate funtion is required to create AVLTree (comparator funtion).  
+  `bool success;`  
+  `AVLTree *tree;`  
+  `tree=createAVLTree(&success,predicate);`  
+  if(`success==true`) tree created.  
+  if(`success==false`) tree is not created.  
+* To `add/insert` in AVL Tree
+  ```c
+  void addToAVLTree(AVLTree *avlTree,void *ptr,bool *success);  
+
+  void insertIntoAVLTree(AVLTree *avlTree,void *ptr,bool *success);
+  ```
+  both the funtions are use to adding and inserting new data in AVL Tree.  
+  `bool success;`  
+  `int i=100;`  
+  `addToAVLTree(tree,(void *)&i,&success);`  
+   if(`success==true`) element is added.  
+   if(`success==false`) element is not added.  
+   similary we can use insertIntoAVLTree function.  
+* To `get size` of AVL Tree
+  ```c
+  int getSizeOfAVLTree(AVLTree *avlTree);
+  ```
+  `int size;`  
+  `size=getSizeOfAVLTree(tree);`  
+* To `remove` element from AVL Tree
+  ```c
+  void * removeFromAVLTree(AVLTree *avlTree,void *ptr,bool *success);
+  ```
+  `bool success;`  
+  `int i=100;` (element to remove from tree)  
+  `void *ptr;`  
+  `ptr=removeFromAVLTree(avlTree,(void *)i,&success);` (ptr will store the address of removed element which is i)  
+  if(`success==true`) element is removed.  
+  if(`success==false`) element is not removed.  
+
+* To `get an element` from AVL Tree  
+  ```c
+  void * getFromAVLTree(AVLTree *avlTree,void *ptr,bool *success);
+  ```
+  `bool success;`  
+  `int i=100;` (element to get from tree)  
+  `void *ptr;`  
+  `ptr=removeFromAVLTree(avlTree,(void *)i,&success);` (ptr will store the address of element to get, which is i)  
+  if(`success==true`) element is received in ptr.  
+  if(`success==false`) element is not received int ptr.  
+* To `get height` of AVL Tree
+  ```c
+  int getHeightOfAVLTree(AVLTreeNode *root);
+  ```
+  `int height;`
+  `getHeightOfAVLTree(avlTree);`
+* To `clear` the AVL Tree  
+  ```c
+  void clearAVLTree(AVLTree *avlTree);
+  ```
+  use to free (remove) all nodes of tree (size of tree is zero).  
+  `clearAVLTree(tree);`  
+* To `delete/destroy` the Singly Linked List    
+  ```c
+  void destroyAVLTree(AVLTree *avlTree);
+  ```
+  use to delete the tree.  
+  `destroyAVLTree(tree);`  
+  ***  
+### Description of Iterator functions of AVL Tree:  
+
+* To `create iterator` of AVLTree
+  ```c
+  AVLTreeInOrderIterator getAVLTreeInOrderIterator(AVLTree *avlTree,bool *success);  
+
+  AVLTreePreOrderIterator getAVLTreePreOrderIterator(AVLTree *avlTree,bool *success);  
+
+  AVLTreePostOrderIterator getAVLTreePostOrderIterator(AVLTree *avlTree,bool *success);  
+  ```
+  `AVLTreeInOrderIterator it;`  
+  `bool success;`  
+  `it=getAVLTreeInOrderIterator(tree,&success);`  
+  if(`success=true`) iterator (it) is created.  
+  if(`success==false`) iterator (it) is not created.  
+  similary we can create iterator for pre order and post order traversal.
+  
+* To `check iterator's position` in AVL Tree  
+  ```c
+  bool hasNextInOrderElementInAVLTree(AVLTreeInOrderIterator *avlTreeInOrderIterator);  
+  
+  bool hasNextPreOrderElementInAVLTree(AVLTreePreOrderIterator *avlTreePreOrderIterator);  
+
+  bool hasNextPostOrderElementInAVLTree(AVLTreePostOrderIterator *avlTreePostOrderIterator);  
+  ```
+  `bool check;`  
+  `check=hasNextInOrderElementInAVLTree(&it);`  
+  if(`check==true`) next element is exist in the tree traversal.  
+  if(`check==false`) iterator is at end of the list traversal.  
+  similary we can use pre order and post order funtion.  
+
+* To `check iterator's position` in AVL Tree  
+  ```c
+  void * getNextInOrderElementFromAVLTree(AVLTreeInOrderIterator *avlTreeInOrderIterator,bool *success);  
+
+  void * getNextPreOrderElementFromAVLTree(AVLTreePreOrderIterator *avlTreePreOrderIterator,bool *success);  
+
+  void * getNextPostOrderElementFromAVLTree(AVLTreePostOrderIterator *avlTreePostOrderIterator,bool *success);  
+  ```
+  In this funtion iterator will return the current pointing element (data of node) and traverse one step forward.  
+  `void * ptr;`  
+  `bool success;`  
+  `ptr=getNextInOrderElementFromAVLTree(&it,&success);`  
+  if(`success=true`) element is received in ptr.  
+  if(`success=false`)  element is not received in ptr.  
+  similary we can use pre order and post order funtion.  
+  ***
+### Use Of AVL Tree :
+```c
+#include<my_avl_tree.h>
+#include<stdio.h>
+#include<stdlib.h>
+int myComparator(void *left,void *right)
+{
+int *leftInt,*rightInt;
+leftInt=(int *)left;
+rightInt=(int *)right;
+return (*leftInt)-(*rightInt);
+}
+
+int main()
+{
+char more;
+int *x;
+int num,ch;
+AVLTree *tree;
+AVLTreeInOrderIterator inOrderIterator;
+AVLTreePreOrderIterator preOrderIterator;
+AVLTreePostOrderIterator postOrderIterator;
+
+bool succ;
+tree=createAVLTree(&succ,myComparator);
+if(succ==false)
+{
+printf("Unable to create tree, low on memory\n");
+return 0;
+}
+while(1)
+{
+printf("1. Insert \n");
+printf("2. In order traversal\n");
+printf("3. Pre order traversal\n");
+printf("4. Post order Traversal\n");
+printf("5. Remove \n");
+printf("6. Search \n");
+printf("7. Exit\n");
+printf("Enter your choice : ");
+scanf("%d",&ch);
+if(ch==1)
+{
+printf("Enter number to be insert in tree  : ");
+scanf("%d",&num);
+fflush(stdin);
+x=(int *)malloc(sizeof(int));
+*x=num;
+insertIntoAVLTree(tree,x,&succ);
+if(succ) printf("address of item that contain %d inserted in tree\n",*x);
+else printf("Unable to insert in tree\n"); 
+}
+if(ch==2)
+{
+printf("In Order Iteration start \n");
+inOrderIterator=getAVLTreeInOrderIterator(tree,&succ);
+if(succ)
+{
+while(hasNextInOrderElementInAVLTree(&inOrderIterator))
+{
+x=(int *)getNextInOrderElementFromAVLTree(&inOrderIterator,&succ);
+printf("%d\n",*x);
+}
+}
+}
+if(ch==3)
+{
+printf("Pre Order Iteration start \n");
+preOrderIterator=getAVLTreePreOrderIterator(tree,&succ);
+if(succ)
+{
+while(hasNextPreOrderElementInAVLTree(&preOrderIterator))
+{
+x=(int *)getNextPreOrderElementFromAVLTree(&preOrderIterator,&succ);
+printf("%d\n",*x);
+}
+}
+}
+if(ch==4)
+{
+printf("Post Order Iteration start \n");
+postOrderIterator=getAVLTreePostOrderIterator(tree,&succ);
+if(succ)
+{
+while(hasNextPostOrderElementInAVLTree(&postOrderIterator))
+{
+x=(int *)getNextPostOrderElementFromAVLTree(&postOrderIterator,&succ);
+printf("%d\n",*x);
+}
+}
+}
+if(ch==5)
+{
+printf("Enter number to remove : ");
+scanf("%d",&num);
+fflush(stdin);
+x=removeFromAVLTree(tree,&num,&succ);
+if(succ) printf("%d is removed\n",*x);
+else printf("%d is not found\n",num);
+}
+if(ch==6)
+{
+printf("Enter number to search : ");
+scanf("%d",&num);
+fflush(stdin);
+x=getFromAVLTree(tree,&num,&succ);
+if(succ) printf("%d is found\n",*x);
+else printf("%d is not found\n",num);
+}
+if(ch==7) break;
+}//main loop ends
+destroyAVLTree(tree); 
+return 0;
+}
+```
