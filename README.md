@@ -19,8 +19,8 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
 * [Generic Queue](#generic-queue)
    * [Use of Queue](#use-of-queue-)
 * [Generic AVL Tree](#generic-avl-tree)  
-   * [AVL Tree Iterator]()
-   * [Use of AVL Tree]()
+   * [AVL Tree Iterator](#description-of-iterator-functions-of-avl-tree)
+   * [Use of AVL Tree](#use-of-avl-tree-)
 
 ## Generic Singly Linked List  
 ***
@@ -61,7 +61,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
   ```c
   void * removeFromSinglyLinkedList(SinglyLinkedList *singlyLinkedList,int index,bool *success);
   ```
-  funtion will return removed element's information.
+  function will return removed element's information.  
   `bool success;`  
   `void * ptr;`  
   `int index;` (position to remove element in list)  
@@ -101,7 +101,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
   ```c
   void clearSinglyLinkedList(SinglyLinkedList *singlyLinkedList);
   ```
-  use to make list nodes free (size of list is zero).  
+  use to free (remove) nodes of list (size of list is zero).  
   `clearSinglyLinkedList(list);`  
 * To `delete/destroy` the Singly Linked List    
   ```c
@@ -135,7 +135,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
   ```c
   void * getNextElementFromSinglyLinkedList(SinglyLinkedListIterator *singlyLinkedListIterator,bool *success);  
   ```
-  In this funtion iterator will return the current pointing element (data of node) and traverse one step forward.  
+  In this function iterator will return the current pointing element (data of node) and traverse one step forward.  
   `void * ptr;`  
   `bool success;`  
   `ptr=getNextElementFromSinglyLinkedList(&it,&success);`  
@@ -244,7 +244,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
   ```c
   void * removeFromDoublyLinkedList(DoublyLinkedList *doublyLinkedList,int index,bool *success);  
   ```
-  funtion will return removed element's information.  
+  function will return removed element's information.  
   `bool success;`  
   `void * ptr;`  
   `int index;` (position to remove element in list)  
@@ -285,7 +285,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
   ```c
   void clearDoublyLinkedList(DoublyLinkedList *doublyLinkedList);
   ```
-  use to make list nodes free (size of list is zero).  
+  use to free (remove) nodes of list (size of list is zero).  
   `clearDoublyLinkedList(list);`
 
 * To `delete/destroy` the Doubly Linked List    
@@ -319,7 +319,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
   ```c
   void * getNextElementFromDoublyLinkedList(DoublyLinkedListIterator *doublyLinkedListIterator,bool *success);
   ```
-  In this funtion iterator will return the current pointing element (data of node) and traverse one step forward.  
+  In this function iterator will return the current pointing element (data of node) and traverse one step forward.  
   `void * ptr;`  
   `bool success;`  
   `ptr=getNextElementFromDoublyLinkedList(&it,&success);`  
@@ -349,7 +349,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
   ```c
   void * getPreviousElementFromDoublyLinkedList(DoublyLinkedListReverseIterator *doublyLinkedListReverseIterator,bool *success);
   ```
-  In this funtion iterator will return the current pointing element (data of node) and traverse one step backward.  
+  In this function iterator will return the current pointing element (data of node) and traverse one step backward.  
   `void * ptr;`  
   `bool success;`  
   `ptr=getPreviousElementFromDoublyLinkedList(&it,&success);`  
@@ -422,7 +422,7 @@ we have `STL in C++`, `Collection classes in Java` but when we talk about `C` so
 ## Generic Stack
 ___
 ### Description of Main functions :
-* To `create` stack
+* To `create` Stack
   ```c
   Stack * createStack(bool *success);
   ```
@@ -432,7 +432,7 @@ ___
   if(`success==true`) stack created.  
   if(`success==false`) stack is not created.  
 
-* To `push` in stack
+* To `push` in Stack
   ```c
   void pushOnStack(Stack *stack,void *ptr,bool *success);
   ```
@@ -442,7 +442,7 @@ ___
   if(`success==true`) element is pushed.  
   if(`success==false`) element is not pushed.
 
-* To `pop` from stack
+* To `pop` from Stack
   ```c
   void * popFromStack(Stack *stack,bool *success);
   ```
@@ -452,14 +452,14 @@ ___
   if(`success==true`) element is poped.  
   if(`success==false`) element is not poped.  
 
-* To `get size` of stack  
+* To `get size` of Stack  
   ```c
   int getSizeOfStack(Stack *stack);  
   ```
   `int size;`  
   `size=getSizeOfStack(stack);`  
 
-* To `top element` of stack  
+* To `top element` of Stack  
   ```c
   void * elementAtTopOfStack(Stack *stack,bool *success);
   ```
@@ -468,7 +468,7 @@ ___
   `ptr=elementAtTopOfStack(stack,&success);`(ptr is pointing top most element of stack.)  
   if(`success==true`) we got top element.  
   if(`success==true`) we didn't got top element.  
-* To `check` is stack `empty`
+* To `check` is Stack `empty`
   ```c
   bool isStackEmpty(Stack *stack);
   ```
@@ -550,7 +550,7 @@ ___
   ## Generic Queue
 ___
 ### Description of Main functions :
-* To `create` queue
+* To `create` Queue
   ```c
   Queue * createQueue(bool *success);
   ```
@@ -560,7 +560,7 @@ ___
   if(`success==true`) queue created.  
   if(`success==false`) queue is not created.  
 
-* To `add` to queue
+* To `add` in Queue
   ```c
   void addToQueue(Queue *queue,void *ptr,bool *success);
   ```
@@ -570,7 +570,7 @@ ___
   if(`success==true`) element is added.  
   if(`success==false`) element is not added.
 
-* To `remove` from queue
+* To `remove` from Queue
   ```c
   void * removeFromQueue(Queue *queue,bool *success);
   ```
@@ -580,14 +580,14 @@ ___
   if(`success==true`) element is removed.  
   if(`success==false`) element is not removed.  
 
-* To `get size` of queue  
+* To `get size` of Queue  
   ```c
   int getSizeOfQueue(Queue *queue);  
   ```
   `int size;`  
   `size=getSizeOfQueue(queue);`  
 
-* To `top element` of queue  
+* To `top element` of Queue  
   ```c
   void * elementAtTopOfQueue(Queue *queue,bool *success);
   ```
@@ -596,7 +596,7 @@ ___
   `ptr=elementAtTopOfQueue(queue,&success);`(ptr is pointing top most element of queue.)  
   if(`success==true`) we got top element.  
   if(`success==true`) we didn't got top element.  
-* To `check` is queue `empty`
+* To `check` is Queue `empty`
   ```c
   bool isQueueEmpty(Queue *queue);
   ```
@@ -693,7 +693,7 @@ ___
 
   void insertIntoAVLTree(AVLTree *avlTree,void *ptr,bool *success);
   ```
-  both the funtions are use to adding and inserting new data in AVL Tree.  
+  both the funtions are use for adding and inserting new data in AVL Tree.  
   `bool success;`  
   `int i=100;`  
   `addToAVLTree(tree,(void *)&i,&success);`  
@@ -713,7 +713,7 @@ ___
   `bool success;`  
   `int i=100;` (element to remove from tree)  
   `void *ptr;`  
-  `ptr=removeFromAVLTree(avlTree,(void *)i,&success);` (ptr will store the address of removed element which is i)  
+  `ptr=removeFromAVLTree(avlTree,(void *)i,&success);` (ptr will store the address of removed element, which is i)  
   if(`success==true`) element is removed.  
   if(`success==false`) element is not removed.  
 
@@ -731,15 +731,15 @@ ___
   ```c
   int getHeightOfAVLTree(AVLTreeNode *root);
   ```
-  `int height;`
-  `getHeightOfAVLTree(avlTree);`
+  `int height;`  
+  `getHeightOfAVLTree(avlTree);`  
 * To `clear` the AVL Tree  
   ```c
   void clearAVLTree(AVLTree *avlTree);
   ```
   use to free (remove) all nodes of tree (size of tree is zero).  
   `clearAVLTree(tree);`  
-* To `delete/destroy` the Singly Linked List    
+* To `delete/destroy` the AVL Tree  
   ```c
   void destroyAVLTree(AVLTree *avlTree);
   ```
@@ -774,8 +774,8 @@ ___
   `bool check;`  
   `check=hasNextInOrderElementInAVLTree(&it);`  
   if(`check==true`) next element is exist in the tree traversal.  
-  if(`check==false`) iterator is at end of the list traversal.  
-  similary we can use pre order and post order funtion.  
+  if(`check==false`) iterator is at end of the tree traversal.  
+  similary we can use pre order and post order function.  
 
 * To `check iterator's position` in AVL Tree  
   ```c
@@ -785,13 +785,13 @@ ___
 
   void * getNextPostOrderElementFromAVLTree(AVLTreePostOrderIterator *avlTreePostOrderIterator,bool *success);  
   ```
-  In this funtion iterator will return the current pointing element (data of node) and traverse one step forward.  
+  In this function iterator will return the current pointing element (data of node) and traverse one step forward.  
   `void * ptr;`  
   `bool success;`  
   `ptr=getNextInOrderElementFromAVLTree(&it,&success);`  
   if(`success=true`) element is received in ptr.  
   if(`success=false`)  element is not received in ptr.  
-  similary we can use pre order and post order funtion.  
+  similary we can use pre order and post order function.  
   ***
 ### Use Of AVL Tree :
 ```c
