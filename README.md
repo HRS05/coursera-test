@@ -27,5 +27,5 @@ The root idea behind the implementation of this application is to generate a uni
 
 In the case of the reading card, we read those bytes (character's bytes)  and then create an id by using all  16 bytes and then search for id in the student_card_id table, if it exists then we get details of the student from the database by using roll number(as primary key).  
 
-<img src='images/student.jpg'>  
+<img src='images/student.jpg' width=450>  
 
