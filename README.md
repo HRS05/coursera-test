@@ -1,146 +1,215 @@
-Skip to content
-Search or jump to…
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@HRS05 
-HRS05
-/
-coursera-test
-Public
-1
-00
-Code
-Issues
-Pull requests
-Actions
-Projects
-Wiki
-Security
-Insights
-Settings
-coursera-test
-/
-README.md
-in
-main
- 
-
-Spaces
-
-2
-
-Soft wrap
-1
 # DOCUMENTATION
-2
-​
-3
+
 ## Overview
-4
 Here you get to know about a `custom javascript library` to avoid the redundancy in programming and also to provide access of commonly used components.
-5
-​
-6
+
 ## Why someone use this library ?
-7
-The main benefits to using to avoid redundancy like if some needs to place an AJAX call so, he/she needs to write the same code, again and again, I also generalized some mainly used components such as Modal, accordion panel and grid.
-8
-​
-9
-​
-10
+The main benefits to using to avoid redundancy like if some needs to place an AJAX call so, he/she needs to write the same code, again and again, I also generalized some mainly used components such as Modal, accordion panel and grid.
+
+
 * [Ajax calls](#ajax-calls)  
-11
    * [Place a call](#place-a-call)
-12
    
-13
 * [Accordion Panel](#accordion-panel)  
-14
     * [use of Accordion Panel](#use-of-accordion-panel)
-15
 * [Modal](#modal)
-16
    * [use of Modal](#use-of-modal)
-17
+* [Validation](#validation)  
+   * [Use of validation](#use-of-validation)
 * [Grid](#generic-queue)
-18
    * [Use of Grid](#use-of-queue-)
-19
-​
-20
+
 ## AJAX calls 
-21
 ***
-22
-Here, we provide functional support for `AJAX` call in which user pass necessary information by wrapping in `JSON` format.  
-23
+Here, we provide functional support for `AJAX` call in which user pass necessary information by wrapping in `JSON` format.  
 information include : url,methodeType,success and failure.  
-24
 `url` -> URL for which we want to place an ajax call.   
-25
 `methodType` -> give the information about request type (default it is of GET type).   
-26
-`success` -> function execute on successful completion of ajax call.   
-27
+`success` -> function execute on successful completion of ajax call.   
 `failure` -> function execute on failure of ajax call.
-28
 ***
-29
 ### Place a call
-30
   ```c
-31
 $$$.ajax({
-32
 "url": "requestUrl",
-33
 "methodType": "GET",
-34
 "success": function(responseData){
-35
-​
-36
+
 },
-37
 "failure": function(){
-38
-​
-39
+
 }
-40
 });
-41
   ```
-42
 ## Accordion Panel
-43
 ***
-44
-To use the accordion panel we need to create a division in which we have to set property `'accordian=true'`, then inside that division, we have to create a heading and below the heading, we have to define respective information whatever we want in the new division just next to it.
-No file chosen
-Attach files by dragging & dropping, selecting or pasting them.
-@HRS05
-Commit changes
-Commit summary
-Create README.md
-Optional extended description
-Add an optional extended description…
- Commit directly to the main branch.
- Create a new branch for this commit and start a pull request. Learn more about pull requests.
- 
-© 2021 GitHub, Inc.
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHub
-Pricing
-API
-Training
-Blog
-About
+To use the accordion panel we need to create a division in which we have to set property `'accordian=true'`, then inside that division, we have to create a heading and below the heading, we have to define respective information whatever we want in the new division just next to it.
+***
+### Use of Accordion Panel
+  ```c
+  <div accordian='true'>
+<h1>Heading 1</h1> 
+<div>
+</div>
+
+<h1>Heading 2</h1> 
+<div>
+</div>
+
+<h1>Heading 3</h1> 
+<div>
+</div>
+
+</div>
+  ```
+
+## Modal
+***
+For creating modal first we need to define some basic properties while creating modal division and also define some pre-required functions.  
+following are the properties which required: -
+1. division `id`
+2. `forModal`='true'
+3. `style`
+4. `size` (optional)
+5. `header` (heading)
+6. `footer`
+7. `maskColor` (optional)
+8. `modalBackgroundColor` (optional)
+9. `closeButton` (optional, already set true).
+
+following are the pre-required functions (as property) required:-
+1. `beforeOpening` :- the function will execute before opening the modal.
+2. `afterOpening` :- the function will execute after opening the modal.
+3. `beforeClosing` :- the function will execute before closing the modal.
+4. `afterClosing` :- the function will execute after closing the modal.
+
+Note :- for more clarification go for an explanation of how to use modal.
+***
+### Use of Modal
+  ```c
+//user written functions
+//javascript part
+
+<script>
+
+function abBeforeOpening()
+{
+alert('ab before opening get called');
+return true;
+}
+
+function abOpened()
+{
+alert('Modal with ab opened');
+}
+
+function abBeforeClosing()
+{
+alert('ab before closing get called');
+return true;
+} 
+
+function abClosed()
+{
+alert("Modal with ab closed");
+}
+
+function createModal()
+{
+$$$.modals.show("ab");
+}
+</script>
+
+// html part
+
+<button onCLick='createModal()'>Show First Modal</button>
+
+<div id='ab' style='display:none' forModal='true' size="400X300" header="Some header" footer="Some footer"
+ maskColor="#3355ff" modalBackgroundColor="#549933" closeButton="true" beforeOpening="abBeforeOpening()" 
+ afterOpening="abOpened()" beforeClosing="abBeforeClosing()" afterClosing="abClosed()">
+
+//content for modal
+
+</div> 
+ ```
+## Validation
+***
+In case of validation, we provide a function that takes basic validation information in JSON format and check all the validation as per user requirements.   
+Note :- validation is applicable on text,textarea,select-one,instanceof RadioNodeList,checkbox.   
+(we can also add any other input format also as per user requirement)
+***
+### Use of validation
+  ```c
+//validation information code by user
+<script>
+function validate()
+{
+    //here, nm is name property of respective field (same in all other)
+return $$$("formId").isValid({
+"nm":{
+"required":true,
+"max-length":20,
+"error-pane":"nmErrorSection",
+"error":{
+"required": "Name required",
+"max-length": "Name can not exceed 20 characters"
+}
+},
+"ad":{
+"required":true,
+"error-pane": "adErrorSection",
+"error":{
+"required": "Address required"
+}
+},
+"ct":{
+"invalid": -1,
+"error-pane": "ctErrorSection",
+"error":{
+"invalid": "Select city"
+}
+},
+"gender":{
+"required": true,
+"error-pane":"genderErrorSection",
+"error":{
+"required": "Select gender"
+}
+},
+"ag":{
+"required-state": true,
+"display-alert": true,
+"error":{
+"required-state": "Select I agree checkbox"
+}
+}
+});
+}
+</script>
+//html code by user
+
+<form id='formId' action='whatever' onsubmit='return validate()'>
+Name <input type='text' id='name' name='nm' >
+<span id='nmErrorSection'></span><br>
+Adress <textarea id='ad' name='ad'></textarea>
+<span id='adErrorSection'></span><br>
+Select City
+<select id='ct' name='ct'>
+<option value='-1'>Select City</option>
+<option value='1'>Manawar</option>
+<option value='2'>Ujjain</option>
+<option value='3'>Dewas</option>
+<option value='4'>Indore</option>
+</select>
+<span id='ctErrorSection'></span><br>
+Gender &nbsp;&nbsp;&nbsp;&nbsp;
+Male <input type='radio' name='gender' id='ml' value='M'>
+&nbsp;&nbsp;&nbsp;
+Female <input type='radio' name='gender' id='fe' value'F'>
+&nbsp;&nbsp;&nbsp;
+<span id='genderErrorSection'></span><br>
+I Agree<input type='checkbox' name='ag' id='ag' value='Y'><br>
+<Button type='submit'>Register</button>      
+</form>
+
+  ```
