@@ -16,9 +16,6 @@ The main benefits to using to avoid redundancy like if some needs to place an A
    * [use of Modal](#use-of-modal)
 * [Grid](#generic-queue)
    * [Use of Grid](#use-of-queue-)
-* [Generic AVL Tree](#generic-avl-tree)  
-   * [AVL Tree Iterator](#description-of-iterator-functions-of-avl-tree)
-   * [Use of AVL Tree](#use-of-avl-tree-)
 
 ## AJAX calls 
 ***
@@ -125,7 +122,9 @@ $$$.modals.show("ab");
 
 <button onCLick='createModal()'>Show First Modal</button>
 
-<div id='ab' style='display:none' forModal='true' size="400X300" header="Some header" footer="Some footer" maskColor="#3355ff" modalBackgroundColor="#549933" closeButton="true" beforeOpening="abBeforeOpening()" afterOpening="abOpened()" beforeClosing="abBeforeClosing()" afterClosing="abClosed()">
+<div id='ab' style='display:none' forModal='true' size="400X300" header="Some header" footer="Some footer"
+ maskColor="#3355ff" modalBackgroundColor="#549933" closeButton="true" beforeOpening="abBeforeOpening()" 
+ afterOpening="abOpened()" beforeClosing="abBeforeClosing()" afterClosing="abClosed()">
 
 //content for modal
 
