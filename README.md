@@ -3,9 +3,9 @@
 ## Overview
 Here you get to know about a `custom javascript library` to avoid the redundancy in programming and also to provide access of commonly used components.
 
-## Why someone use this library ?
-The main benefits to using to avoid redundancy like if some needs to place an AJAX call so, he/she needs to write the same code, again and again, I also generalized some mainly used components such as Modal, accordion panel and grid.
-
+## Importance
+The main benefit of using this library is avoiding redundancy during programming.  
+The instruction for using provided features of the library is shown below:-
 
 * [Ajax calls](#ajax-calls)  
    * [Place a call](#place-a-call)
@@ -16,8 +16,6 @@ The main benefits to using to avoid redundancy like if some needs to place an A
    * [use of Modal](#use-of-modal)
 * [Validation](#validation)  
    * [Use of validation](#use-of-validation)
-* [Grid](#generic-queue)
-   * [Use of Grid](#use-of-queue-)
 
 ## AJAX calls 
 ***
@@ -136,7 +134,7 @@ $$$.modals.show("ab");
 ***
 In case of validation, we provide a function that takes basic validation information in JSON format and check all the validation as per user requirements.   
 Note :- validation is applicable on text,textarea,select-one,instanceof RadioNodeList,checkbox.   
-(we can also add any other input format also as per user requirement)
+(we can also add any other input format as per user requirement)
 ***
 ### Use of validation
   ```c
@@ -213,3 +211,5 @@ I Agree<input type='checkbox' name='ag' id='ag' value='Y'><br>
 </form>
 
   ```
+  ***
+  NOTE :- You can also go with example for more clarification.
